@@ -15,33 +15,8 @@ las categorías son las siguientes:
 using namespace std;
 
 main(){
-    int num;
-    cout << "Ingrese un numero: ";
-    cin >> num;
+    int nota;
+    string resultado;
 
-    while (num >= 1 && num <=5){
-        cout << "Deficiente";
-        break;
-    }
-
-    while (num >= 6 && num <=10){
-        cout << "Regular";
-        break;
-    }
-
-    while (num >= 11 && num <=15){
-        cout << "Bueno";
-        break;
-    }
-
-    while (num >= 16 && num <=18){
-        cout << "Muy bueno";
-        break;
-    }
-
-    while (num >= 18){
-        cout << "Excelente";
-        break;
-    }
-
+    resultado = (nota<=5)?"deficiente":(nota<=10)?"regular":(nota<=15)?"bueno":(nota<=18)?"Muy bueno":"Excelente";
 }
