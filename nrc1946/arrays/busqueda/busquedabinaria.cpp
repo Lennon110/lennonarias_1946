@@ -1,52 +1,41 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include "..\ordenamiento\seleccion.cpp"
+#include "../../librerias/arrays.h"
 using namespace std;
-
-void llenaDatos(int v[], int n){
-    srand(time(NULL));
-    for(int i = 0; i<n; i++){
-        //v[i]=rand()%20+1;
-        cin>>v[i];
-    }
-}
-
-void verDatos(int v[],int n){
-    for(int i = 0; i<n;i++){
-        cout<<v[i]<<"\t";
-    }
-}
+using namespace vectorn;
 
 bool isBusquedaBinaria(int v[], int n, int elemento){
-    int Iabajo, Iarriba, Icentro;
-    Iabajo = 0;
-    Iarriba = n-1;
-    Icentro = (Iabajo + Iarriba)/2;
-    while(Iabajo<=Iarriba && v[Icentro]!=elemento){
-        if(v[Icentro]<elemento){
-            Iabajo=Icentro+1;
+    int arriba, abajo,centro;
+    abajo = 0;
+    arriba = n-1;
+    while(abajo <= arriba){
+        centro = (abajo+arriba)/2;
+        if(v[centro] == elemento){
+            return true;
+        }
+        else if(v[centro] < elemento){
+            abajo = centro+1;
         }
         else{
-            Iarriba=Icentro-1;
+            arriba = centro-1;
         }
-        Icentro=(Iabajo+Iarriba)/2;
-
     }
-    return(Iabajo<=Iarriba);
-
+    return false;
 }
 
-int main2(){
+main(){
     int ne, dato;
     cout << "Nro de Elementos del Array: ";
     cin >> ne;
     int vector[ne];
-    llenaDatos(vector, ne);
-    ordenSeleccion(vector, ne);
-    cout << "Ingrese el dato a buscar: ";
+    llenarVector(vector, ne);
+    cout << "Datos originales\n";
+    verVector(vector, ne);
+    cout << "\nDatos ordenados \n";
+    ordenaBurbujav3(vector, ne);
+    verVector(vector, ne);
+    cout << "\nIngrese el dato a buscar: ";
     cin >> dato;
-    (isBusquedaBinaria(vector, ne, dato))?cout << "Dato Encontrado":cout<<"Dato no encontrado";
-    return 0;
-    
+    (isBusquedaBinaria(vector, ne, dato))?cout << "Dato Encontrado":cout<<"Dato no encontrado";    
 }
