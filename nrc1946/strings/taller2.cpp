@@ -1,4 +1,4 @@
-#include <iostream>;
+#include <iostream>
 using namespace std;
 
 main(){
@@ -23,4 +23,19 @@ main(){
     cout << "Tamano maximo: " << cadena1.max_size() << endl;
     //tamaño en bytes del objeto string que ocupa actualmente
     cout << "Capacidad: " << cadena1.capacity() << endl;
+    //suando el metodo compare para comparar dos cadenas
+    cout << "cad1=" << cadena1 << "cad2="<< cadena2 << endl; 
+    cadena1 = "mola";
+    cadena2 = "cola";
+    int comparacion = cadena1.compare(cadena2);
+    cout << "comparacion: "<< comparacion << endl;
+    int encontrado = cadena1.find("cos");
+    cout << "encontrado= "<<encontrado << endl;
+    (cadena1.find("cos")== string::npos)?cout<<"No encontrado":cout<<"Encontrado";
+    string numerostr = "123";
+    int numero = stoi(numerostr);
+    cout << endl;
+    cout << numero << endl;
+    cin >> numero;
+
 }
