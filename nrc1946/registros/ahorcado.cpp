@@ -44,7 +44,7 @@ void jugar(string palabraSeleccionada) {
     char letra;
     bool acierto;
 
-    while (intentos > 0 && adivinando != palabraSeleccionada) {
+    while (intentos > 0 || adivinando != palabraSeleccionada) {
         acierto = false;
         cout << "\nPalabra: " << adivinando << endl;
         cout << "Intentos restantes: " << intentos << endl;
@@ -69,11 +69,11 @@ void jugar(string palabraSeleccionada) {
 
     mostrarAhorcado(intentos);
     
-    if (adivinando == palabraSeleccionada) {
+    if (adivinando == palabraSeleccionada) 
         cout << "\nGanaste. Adivinaste la palabra: " << palabraSeleccionada << endl;
-    } else {
+    else
         cout << "\nPerdiste. La palabra era: " << palabraSeleccionada << endl;
-    }
+
 }
 
 int main() {
